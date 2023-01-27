@@ -13,8 +13,7 @@ class MainGalleryViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var takePictureButton: UIButton!
     
-    internal var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
-    internal var pictures: [Picture] = []
+    internal let viewModel = DataViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,8 @@ class MainGalleryViewController: UIViewController {
     override func viewWillAppear(
         _ animated: Bool
     ) {
-        self.fetchPictures()
+        self.viewModel.fetchPictures()
+        self.galleryCollection.reloadData()
     }
     
     private func setupComponents() {
@@ -41,17 +41,6 @@ class MainGalleryViewController: UIViewController {
         self.galleryCollection.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func fetchPictures() {
-        let request: NSFetchRequest<Picture> = NSFetchRequest(entityName: "Picture")
-        do {
-            let pictures: [Picture] = try self.context.fetch(request)
-            self.pictures = pictures
-            self.galleryCollection.reloadData()
-        } catch {
-            print(error)
-        }
-    }
-    
     override func prepare(
         for segue: UIStoryboardSegue,
         sender: Any?
@@ -62,7 +51,7 @@ class MainGalleryViewController: UIViewController {
             segue.identifier == "toDetailView"
         {
             let controller = segue.destination as? DetailViewController
-            controller?.picture = self.pictures[row]
+            controller?.picture = self.viewModel.pictures[row]
         }
     }
     

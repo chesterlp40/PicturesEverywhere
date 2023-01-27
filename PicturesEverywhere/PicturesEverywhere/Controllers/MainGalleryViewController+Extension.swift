@@ -14,7 +14,7 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return self.pictures.count
+        return self.viewModel.pictures.count
     }
     
     func collectionView(
@@ -22,7 +22,7 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let imageView = UIImageView()
-        imageView.image = self.pictures[indexPath.row].content
+        imageView.image = self.viewModel.pictures[indexPath.row].content
         let cell = self.galleryCollection.dequeueReusableCell(
             withReuseIdentifier: "cell",
             for: indexPath
@@ -44,8 +44,6 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        /*let detailViewController = DetailViewController()
-        detailViewController.picture = self.pictures[indexPath.row]*/
         self.performSegue(
             withIdentifier: "toDetailView",
             sender: nil
@@ -74,11 +72,10 @@ extension MainGalleryViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         
-        let picture = Picture(context: self.context)
-        picture.location = "No se donde estoy parado"
-        picture.content = UIImage(data: imageData)
-        
-        try? self.context.save()
+        self.viewModel.savePicture(
+            imageData,
+            "Location"
+        )
         
         picker.dismiss(
             animated: true
