@@ -6,8 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
-struct Picture {
-    let image: UIImage
-    let location: String
+@objc(Picture)
+class Picture: NSManagedObject {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Picture> {
+        return NSFetchRequest<Picture>(entityName: "Picture")
+    }
+
+    @NSManaged public var content: UIImage?
+    @NSManaged public var location: String?
+
 }
+
+extension Picture : Identifiable {
+
+}
+

@@ -6,15 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 class MainGalleryViewController: UIViewController {
     
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var takePictureButton: UIButton!
     
+    private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
+    private var pictures: [Picture] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupComponents()
+    }
+    
+    override func viewWillAppear(
+        _ animated: Bool
+    ) {
+        self.fetchPictures()
     }
     
     private func setupComponents() {
@@ -31,8 +41,24 @@ class MainGalleryViewController: UIViewController {
         self.galleryCollection.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    @IBAction func takePictureButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toTakePhoto", sender: self)
+    private func fetchPictures() {
+        let request: NSFetchRequest<Picture> = NSFetchRequest(entityName: "Picture")
+        do {
+            let pictures: [Picture] = try self.context.fetch(request)
+            self.pictures = pictures
+            self.galleryCollection.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+    
+    @IBAction func takePictureButtonPressed(
+        _ sender: UIButton
+    ) {
+        self.performSegue(
+            withIdentifier: "toTakePhoto",
+            sender: self
+        )
     }
     
     override func prepare(
@@ -45,10 +71,8 @@ class MainGalleryViewController: UIViewController {
             let detailViewController = segue.destination as? DetailViewController
             let image = UIImage(systemName: "person.fill")
             detailViewController?.image = image
-            detailViewController?.location = "Tu hna en tanga"
+            detailViewController?.location = "Unknown"
         }
-        
-    
     }
 }
 
@@ -58,15 +82,20 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 20
+        return self.pictures.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = self.galleryCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .cyan
+        let imageView = UIImageView()
+        imageView.image = self.pictures[indexPath.row].content
+        let cell = self.galleryCollection.dequeueReusableCell(
+            withReuseIdentifier: "cell",
+            for: indexPath
+        )
+        cell.backgroundView = imageView
         return cell
     }
     
@@ -83,7 +112,6 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        // let image = self.galleryCollection[indexPath.row]
         self.performSegue(withIdentifier: "toDetailView", sender: self)
     }
 }

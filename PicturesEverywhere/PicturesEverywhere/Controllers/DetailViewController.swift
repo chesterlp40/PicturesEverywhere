@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
         }
         
         self.detailImageView.image = safeImage
+        self.detailImageView.contentMode = .scaleToFill
         self.locationLabel.text = safeLocation
     }
 
