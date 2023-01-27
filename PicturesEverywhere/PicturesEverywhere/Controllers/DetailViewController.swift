@@ -11,8 +11,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
-    internal var image: UIImage?
-    internal var location: String?
+    
+    internal var picture: Picture?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +23,13 @@ class DetailViewController: UIViewController {
         // Title View Controller
         self.title = "Picture Screen"
         
-        guard
-            let safeImage = self.image,
-            let safeLocation = self.location
-        else {
+        guard let picture = self.picture else {
             return
         }
         
-        self.detailImageView.image = safeImage
+        self.detailImageView.image = picture.content
         self.detailImageView.contentMode = .scaleToFill
-        self.locationLabel.text = safeLocation
+        self.locationLabel.text = picture.location
     }
 
 }
