@@ -20,7 +20,6 @@ class MainGalleryViewController: UIViewController {
     private func setupComponents() {
         // Title View Controller
         self.title = "Main Gallery"
-        self.navigationController?.navigationBar.backgroundColor = .blue
         
         // Button Configuration
         self.takePictureButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -33,7 +32,23 @@ class MainGalleryViewController: UIViewController {
     }
     
     @IBAction func takePictureButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toTakePhoto", sender: self)
+    }
+    
+    override func prepare(
+        for segue: UIStoryboardSegue, sender: Any?
+    ) {
+        switch segue.identifier {
+        case "toTakePhoto":
+            _ = segue.destination as? TakePhotoViewController
+        default:
+            let detailViewController = segue.destination as? DetailViewController
+            let image = UIImage(systemName: "person.fill")
+            detailViewController?.image = image
+            detailViewController?.location = "Tu hna en tanga"
+        }
         
+    
     }
 }
 
@@ -60,7 +75,15 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        var width: CGFloat = self.galleryCollection.frame.width/6
+        let width: CGFloat = self.galleryCollection.frame.width/6
         return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        // let image = self.galleryCollection[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailView", sender: self)
     }
 }
