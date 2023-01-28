@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gKD-IX-TwL">
-                                <rect key="frame" x="0.0" y="103" width="393" height="635"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="8" id="JoH-k6-Hd3">
                                     <size key="itemSize" width="180" height="180"/>
@@ -112,10 +112,10 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqh-jz-jCp">
-                                <rect key="frame" x="100" y="770" width="193" height="32"/>
+                                <rect key="frame" x="80" y="754" width="233" height="48"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="6fW-TZ-toA"/>
+                                    <constraint firstAttribute="height" constant="48" id="6fW-TZ-toA"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -129,10 +129,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jqh-jz-jCp" secondAttribute="bottom" constant="16" id="1Oi-C4-1IF"/>
-                            <constraint firstItem="Jqh-jz-jCp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="3Ff-0u-tlI"/>
+                            <constraint firstItem="Jqh-jz-jCp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="3Ff-0u-tlI"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SrP-mO-vJc"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c3D-uj-es1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqh-jz-jCp" secondAttribute="trailing" constant="100" id="euB-GE-tyV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqh-jz-jCp" secondAttribute="trailing" constant="80" id="euB-GE-tyV"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iFM-To-gfV"/>
                             <constraint firstItem="Jqh-jz-jCp" firstAttribute="top" secondItem="gKD-IX-TwL" secondAttribute="bottom" constant="32" id="kRV-kY-Skz"/>
                         </constraints>

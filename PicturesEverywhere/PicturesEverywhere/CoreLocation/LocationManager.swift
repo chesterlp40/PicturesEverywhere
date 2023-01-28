@@ -13,6 +13,9 @@ import CoreLocation
 class LocationManager: NSObject {
     
     private let locationManager = CLLocationManager()
+    internal var authorizationStatus: CLAuthorizationStatus? {
+        return self.locationManager.authorizationStatus
+    }
     internal var exposedLocation: CLLocation? {
         return self.locationManager.location
     }

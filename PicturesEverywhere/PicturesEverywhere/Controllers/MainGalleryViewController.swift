@@ -7,6 +7,7 @@
 
 import AVFoundation
 import CoreData
+import CoreLocation
 import UIKit
 
 // MARK: - MainGalleryViewController Section
@@ -17,6 +18,8 @@ class MainGalleryViewController: UIViewController {
     @IBOutlet weak var takePictureButton: UIButton!
     
     internal let viewModel = DataViewModel()
+    
+    // MARK: - LifeCycle Section
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,8 @@ class MainGalleryViewController: UIViewController {
         self.viewModel.fetchPictures()
         self.galleryCollection.reloadData()
     }
+    
+    // MARK: - Configuration Methods Section
     
     private func setupComponents() {
         self.title = "Main Gallery"
@@ -55,9 +60,54 @@ class MainGalleryViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions Methods Section
+    
     @IBAction func takePictureButtonPressed(
         _ sender: UIButton
     ) {
+        self.validateLocationAuthorization()
+    }
+    
+    private func showAlert (
+        _ title: String,
+        _ message: String
+    ) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: UIAlertAction.Style.default,
+                handler: nil
+            )
+        )
+        DispatchQueue.main.async { [weak self] in
+            self?.present(
+                alert,
+                animated:true,
+                completion: nil
+            )
+        }
+    }
+    
+    private func validateLocationAuthorization() {
+        switch self.viewModel.locationManager.authorizationStatus {
+        case .none, .notDetermined, .restricted, .denied:
+            self.showAlert(
+                "Location denied",
+                "Location services are not enabled"
+            )
+        case .authorizedAlways, .authorizedWhenInUse:
+            self.validateCameraAuthorization()
+        @unknown default:
+            break
+        }
+    }
+    
+    private func validateCameraAuthorization() {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] granted in
             if granted {
                 DispatchQueue.main.async {
@@ -71,25 +121,10 @@ class MainGalleryViewController: UIViewController {
                     )
                 }
             } else {
-                let alert = UIAlertController(
-                    title: "Camera Permission Denied",
-                    message: "You don´t allow access to camera permission",
-                    preferredStyle: UIAlertController.Style.alert
+                self?.showAlert(
+                    "Camera Permission Denied",
+                    "You don´t allow access to camera permission"
                 )
-                alert.addAction(
-                    UIAlertAction(
-                        title: "OK",
-                        style: UIAlertAction.Style.default,
-                        handler: nil
-                    )
-                )
-                DispatchQueue.main.async {
-                    self?.present(
-                        alert,
-                        animated:true,
-                        completion: nil
-                    )
-                }
             }
         }
     }

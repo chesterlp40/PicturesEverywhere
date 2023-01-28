@@ -13,7 +13,7 @@ import CoreData
 class DataViewModel {
     
     private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
-    private var locationManager = LocationManager()
+    internal var locationManager = LocationManager()
     internal var pictures: [Picture] = []
     
     // MARK: - Core Data Section

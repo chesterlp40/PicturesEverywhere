@@ -16,10 +16,14 @@ class DetailViewController: UIViewController {
     
     internal var picture: Picture?
     
+    // MARK: - LifeCycle Section
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupComponents()
     }
+    
+    // MARK: - Configuration Methods Section
     
     private func setupComponents() {
         self.title = "Picture Screen"
