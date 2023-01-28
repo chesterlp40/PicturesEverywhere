@@ -58,13 +58,39 @@ class MainGalleryViewController: UIViewController {
     @IBAction func takePictureButtonPressed(
         _ sender: UIButton
     ) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .camera
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(
-            picker,
-            animated: true
-        )
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] granted in
+            if granted {
+                DispatchQueue.main.async {
+                    let picker = UIImagePickerController()
+                    picker.sourceType = .camera
+                    picker.allowsEditing = true
+                    picker.delegate = self
+                    self?.present(
+                        picker,
+                        animated: true
+                    )
+                }
+            } else {
+                let alert = UIAlertController(
+                    title: "Camera Permission Denied",
+                    message: "You don´t allow access to camera permission",
+                    preferredStyle: UIAlertController.Style.alert
+                )
+                alert.addAction(
+                    UIAlertAction(
+                        title: "OK",
+                        style: UIAlertAction.Style.default,
+                        handler: nil
+                    )
+                )
+                DispatchQueue.main.async {
+                    self?.present(
+                        alert,
+                        animated:true,
+                        completion: nil
+                    )
+                }
+            }
+        }
     }
 }
