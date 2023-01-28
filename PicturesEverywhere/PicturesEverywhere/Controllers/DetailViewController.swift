@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - DetailViewController Section
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
@@ -20,7 +22,6 @@ class DetailViewController: UIViewController {
     }
     
     private func setupComponents() {
-        // Title View Controller
         self.title = "Picture Screen"
         
         guard let picture = self.picture else {
@@ -31,5 +32,4 @@ class DetailViewController: UIViewController {
         self.detailImageView.contentMode = .scaleToFill
         self.locationLabel.text = picture.location
     }
-
 }

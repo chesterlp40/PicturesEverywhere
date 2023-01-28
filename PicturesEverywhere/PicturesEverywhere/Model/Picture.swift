@@ -8,19 +8,17 @@
 import UIKit
 import CoreData
 
+// MARK: - Picture Model Section
+
 @objc(Picture)
 class Picture: NSManagedObject {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Picture> {
         return NSFetchRequest<Picture>(entityName: "Picture")
     }
 
     @NSManaged public var content: UIImage?
     @NSManaged public var location: String?
-
 }
 
-extension Picture : Identifiable {
-
-}
+extension Picture : Identifiable {}
 

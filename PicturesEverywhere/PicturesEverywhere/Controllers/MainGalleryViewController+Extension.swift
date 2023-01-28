@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+// MARK: - MainGalleryViewController Collection View Delegate Section
+
 extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(
@@ -36,7 +38,7 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let width: CGFloat = self.galleryCollection.frame.width/6
+        let width: CGFloat = self.galleryCollection.frame.width * 0.30
         return CGSize(width: width, height: width)
     }
     
@@ -50,6 +52,8 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         )
     }
 }
+
+// MARK: - MainGalleryViewController Picker Delegate Section
 
 extension MainGalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -72,10 +76,10 @@ extension MainGalleryViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         
-        self.viewModel.savePicture(
-            imageData,
-            "Location"
-        )
+        self.viewModel.savePicture(imageData) { [weak self] in
+            self?.viewModel.fetchPictures()
+            self?.galleryCollection.reloadData()
+        }
         
         picker.dismiss(
             animated: true

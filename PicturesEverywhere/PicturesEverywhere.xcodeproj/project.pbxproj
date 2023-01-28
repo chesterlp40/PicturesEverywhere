@@ -20,6 +20,7 @@
 		86F794FD2983918400528DAB /* UIImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F794FC2983918400528DAB /* UIImageTransformer.swift */; };
 		86F794FF2983C53900528DAB /* MainGalleryViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F794FE2983C53900528DAB /* MainGalleryViewController+Extension.swift */; };
 		86F795022983D02800528DAB /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F795012983D02800528DAB /* DataViewModel.swift */; };
+		86F7950529846EAE00528DAB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F7950429846EAE00528DAB /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		86F794FC2983918400528DAB /* UIImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTransformer.swift; sourceTree = "<group>"; };
 		86F794FE2983C53900528DAB /* MainGalleryViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainGalleryViewController+Extension.swift"; sourceTree = "<group>"; };
 		86F795012983D02800528DAB /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
+		86F7950429846EAE00528DAB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		86EBCFD629833A8400761936 /* PicturesEverywhere */ = {
 			isa = PBXGroup;
 			children = (
+				86F7950329846E9100528DAB /* CoreLocation */,
 				86F795002983D00400528DAB /* ViewModel */,
 				86F794F929838D4500528DAB /* CoreData */,
 				86F794CC29837F0500528DAB /* Model */,
@@ -142,6 +145,14 @@
 				86F795012983D02800528DAB /* DataViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		86F7950329846E9100528DAB /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				86F7950429846EAE00528DAB /* LocationManager.swift */,
+			);
+			path = CoreLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				86EBCFDC29833A8400761936 /* MainGalleryViewController.swift in Sources */,
 				86EBCFD829833A8400761936 /* AppDelegate.swift in Sources */,
 				86F794FD2983918400528DAB /* UIImageTransformer.swift in Sources */,
+				86F7950529846EAE00528DAB /* LocationManager.swift in Sources */,
 				86F794CB2983725800528DAB /* DetailViewController.swift in Sources */,
 				86F795022983D02800528DAB /* DataViewModel.swift in Sources */,
 				86F794FF2983C53900528DAB /* MainGalleryViewController+Extension.swift in Sources */,

@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - UIImageTransformer Section
+
 class UIImageTransformer: ValueTransformer {
     
     override func transformedValue(

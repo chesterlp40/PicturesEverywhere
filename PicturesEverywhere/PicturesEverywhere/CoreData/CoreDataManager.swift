@@ -7,6 +7,8 @@
 
 import CoreData
 
+// MARK: - CoreDataManager Section
+
 class CoreDataManager {
     
     let persistentContainer: NSPersistentContainer

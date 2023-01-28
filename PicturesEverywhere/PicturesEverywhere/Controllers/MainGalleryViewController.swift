@@ -5,8 +5,11 @@
 //  Created by Ezequiel Rasgido on 26/01/2023.
 //
 
-import UIKit
+import AVFoundation
 import CoreData
+import UIKit
+
+// MARK: - MainGalleryViewController Section
 
 class MainGalleryViewController: UIViewController {
     
@@ -28,14 +31,11 @@ class MainGalleryViewController: UIViewController {
     }
     
     private func setupComponents() {
-        // Title View Controller
         self.title = "Main Gallery"
         
-        // Button Configuration
         self.takePictureButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         self.takePictureButton.layer.cornerRadius = 10
         
-        // Collection Configuration
         self.galleryCollection.delegate = self
         self.galleryCollection.dataSource = self
         self.galleryCollection.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,6 @@ class MainGalleryViewController: UIViewController {
     @IBAction func takePictureButtonPressed(
         _ sender: UIButton
     ) {
-        // Picker Configuration
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.allowsEditing = true

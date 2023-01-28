@@ -8,17 +8,22 @@
 import UIKit
 import CoreData
 
+// MARK: - DataViewModel Section
+
 class DataViewModel {
+    
     private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
+    private var locationManager = LocationManager()
     internal var pictures: [Picture] = []
+    
+    // MARK: - Core Data Section
     
     internal func fetchPictures() {
         let request: NSFetchRequest<Picture> = NSFetchRequest(
             entityName: "Picture"
         )
         do {
-            let pictures: [Picture] = try self.context.fetch(request)
-            self.pictures = pictures
+            self.pictures = try self.context.fetch(request)
         } catch {
             print(error)
         }
@@ -26,12 +31,41 @@ class DataViewModel {
     
     internal func savePicture(
         _ imageData: Data,
-        _ location: String
+        completion: @escaping () -> Void
     ) {
-        let picture = Picture(context: self.context)
-        picture.location = location
-        picture.content = UIImage(data: imageData)
-        
-        try? self.context.save()
+        guard let exposedLocation = self.locationManager.exposedLocation else {
+            print("*** Error in \(#function): exposedLocation is nil")
+            return
+        }
+        self.locationManager.getPlace(for: exposedLocation) { [weak self] placemark in
+            guard
+                let placemark = placemark,
+                let safeSelf = self
+            else {
+                return
+            }
+                        
+            var output = "Picture location:"
+            if let town = placemark.locality {
+                output = output + "\n\(town)"
+            }
+            if let state = placemark.administrativeArea {
+                output = output + "\n\(state)"
+            }
+            if let country = placemark.country {
+                output = output + "\n\(country)"
+            }
+            
+            let picture = Picture(
+                context: safeSelf.context
+            )
+            picture.location = output
+            picture.content = UIImage(
+                data: imageData
+            )
+            
+            try? safeSelf.context.save()
+            completion()
+        }
     }
 }

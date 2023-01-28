@@ -177,10 +177,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xiu-Zk-hux">
-                                <rect key="frame" x="16" y="119" width="361" height="618.33333333333337"/>
+                                <rect key="frame" x="16" y="134.99999999999997" width="361" height="490.33333333333326"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture location: Tigre  Buenos Aires, Argentina." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfR-Nv-FHz">
-                                <rect key="frame" x="16" y="761.33333333333337" width="361" height="40.666666666666629"/>
+                                <rect key="frame" x="16" y="649.33333333333337" width="361" height="40.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -190,9 +190,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tfR-Nv-FHz" firstAttribute="leading" secondItem="3bA-z8-Swc" secondAttribute="leading" constant="16" id="4cx-8i-Mk0"/>
-                            <constraint firstItem="3bA-z8-Swc" firstAttribute="bottom" secondItem="tfR-Nv-FHz" secondAttribute="bottom" constant="16" id="FOq-Im-LuC"/>
+                            <constraint firstItem="3bA-z8-Swc" firstAttribute="bottom" secondItem="tfR-Nv-FHz" secondAttribute="bottom" constant="128" id="FOq-Im-LuC"/>
                             <constraint firstItem="3bA-z8-Swc" firstAttribute="trailing" secondItem="tfR-Nv-FHz" secondAttribute="trailing" constant="16" id="Hxb-CO-gOG"/>
-                            <constraint firstItem="Xiu-Zk-hux" firstAttribute="top" secondItem="3bA-z8-Swc" secondAttribute="top" constant="16" id="VyG-71-k3F"/>
+                            <constraint firstItem="Xiu-Zk-hux" firstAttribute="top" secondItem="3bA-z8-Swc" secondAttribute="top" constant="32" id="VyG-71-k3F"/>
                             <constraint firstItem="tfR-Nv-FHz" firstAttribute="top" secondItem="Xiu-Zk-hux" secondAttribute="bottom" constant="24" id="gwS-yF-CqD"/>
                             <constraint firstItem="Xiu-Zk-hux" firstAttribute="leading" secondItem="3bA-z8-Swc" secondAttribute="leading" constant="16" id="hEm-2J-5xS"/>
                             <constraint firstItem="3bA-z8-Swc" firstAttribute="trailing" secondItem="Xiu-Zk-hux" secondAttribute="trailing" constant="16" id="wiO-0m-FfW"/>
