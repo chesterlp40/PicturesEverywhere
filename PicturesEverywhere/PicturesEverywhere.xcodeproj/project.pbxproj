@@ -12,7 +12,6 @@
 		86EBCFDC29833A8400761936 /* MainGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBCFDB29833A8400761936 /* MainGalleryViewController.swift */; };
 		86EBCFE129833A8500761936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EBCFE029833A8500761936 /* Assets.xcassets */; };
 		86F794C129833CAB00528DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F794C029833CAB00528DAB /* Main.storyboard */; };
-		86F794C329833CB900528DAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F794C229833CB900528DAB /* LaunchScreen.storyboard */; };
 		86F794CB2983725800528DAB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F794CA2983725800528DAB /* DetailViewController.swift */; };
 		86F794F6298388E400528DAB /* PicturesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86F794F4298388E400528DAB /* PicturesDataModel.xcdatamodeld */; };
 		86F794F829838B5600528DAB /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F794F729838B5600528DAB /* Picture.swift */; };
@@ -21,6 +20,7 @@
 		86F794FF2983C53900528DAB /* MainGalleryViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F794FE2983C53900528DAB /* MainGalleryViewController+Extension.swift */; };
 		86F795022983D02800528DAB /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F795012983D02800528DAB /* DataViewModel.swift */; };
 		86F7950529846EAE00528DAB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F7950429846EAE00528DAB /* LocationManager.swift */; };
+		86F795072985F6AB00528DAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F795062985F6AB00528DAB /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,6 @@
 		86EBCFE029833A8500761936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86EBCFE529833A8500761936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86F794C029833CAB00528DAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		86F794C229833CB900528DAB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86F794CA2983725800528DAB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		86F794F5298388E400528DAB /* PicturesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicturesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		86F794F729838B5600528DAB /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		86F794FE2983C53900528DAB /* MainGalleryViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainGalleryViewController+Extension.swift"; sourceTree = "<group>"; };
 		86F795012983D02800528DAB /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		86F7950429846EAE00528DAB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		86F795062985F6AB00528DAB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,6 @@
 		86F794C429833CDC00528DAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				86F794C229833CB900528DAB /* LaunchScreen.storyboard */,
 				86F794C029833CAB00528DAB /* Main.storyboard */,
 			);
 			path = Views;
@@ -118,6 +117,7 @@
 				86EBCFDB29833A8400761936 /* MainGalleryViewController.swift */,
 				86F794CA2983725800528DAB /* DetailViewController.swift */,
 				86F794FE2983C53900528DAB /* MainGalleryViewController+Extension.swift */,
+				86F795062985F6AB00528DAB /* SplashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86F794C329833CB900528DAB /* LaunchScreen.storyboard in Resources */,
 				86EBCFE129833A8500761936 /* Assets.xcassets in Resources */,
 				86F794C129833CAB00528DAB /* Main.storyboard in Resources */,
 			);
@@ -229,6 +228,7 @@
 				86EBCFDC29833A8400761936 /* MainGalleryViewController.swift in Sources */,
 				86EBCFD829833A8400761936 /* AppDelegate.swift in Sources */,
 				86F794FD2983918400528DAB /* UIImageTransformer.swift in Sources */,
+				86F795072985F6AB00528DAB /* SplashViewController.swift in Sources */,
 				86F7950529846EAE00528DAB /* LocationManager.swift in Sources */,
 				86F794CB2983725800528DAB /* DetailViewController.swift in Sources */,
 				86F795022983D02800528DAB /* DataViewModel.swift in Sources */,
@@ -367,8 +367,11 @@
 				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to the camera to take the photo?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please allow access to track location in pictures.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow access to track location in pictures.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -395,8 +398,11 @@
 				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to the camera to take the photo?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please allow access to track location in pictures.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow access to track location in pictures.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
