@@ -75,7 +75,9 @@ class DataViewModel {
         self.context.delete(
             self.pictures[indexPath.row] as NSManagedObject
         )
-        self.pictures.remove(at: indexPath.row)
+        self.pictures.remove(
+            at: indexPath.row
+        )
         try? self.context.save()
     }
 }
