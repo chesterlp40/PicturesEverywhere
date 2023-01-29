@@ -11,25 +11,34 @@ import UIKit
 
 class SplashViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - LifeCycle Section
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupComponents()
         self.animateTitle()
         self.redirectToMainApp()
     }
     
     // MARK: - Configuration Methods Section
     
+    private func setupComponents() {
+        self.titleLabel.text = "Loading"
+        
+        let image = UIImage(named: "rocket")
+        self.imageView.image = image
+        self.imageView.contentMode = .scaleAspectFill
+    }
+    
     private func animateTitle() {
-        self.titleLabel.text = ""
-        let title = "Pictures\nEverywhere"
+        let title = "..."
         var letterIndex = 0.0
         for letter in title {
             Timer.scheduledTimer(
-                withTimeInterval: 0.1 * letterIndex,
+                withTimeInterval: 0.5 * letterIndex,
                 repeats: false
             ) { [weak self] timer in
                 self?.titleLabel.text?.append(letter)

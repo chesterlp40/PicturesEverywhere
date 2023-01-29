@@ -16,6 +16,7 @@ class MainGalleryViewController: UIViewController {
     
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var takePictureButton: UIButton!
+    @IBOutlet weak var noImagesStackView: UIStackView!
     
     internal let viewModel = DataViewModel()
     
@@ -29,19 +30,38 @@ class MainGalleryViewController: UIViewController {
     override func viewWillAppear(
         _ animated: Bool
     ) {
-        self.viewModel.fetchPictures()
-        self.galleryCollection.reloadData()
+        self.fetchInfo()
     }
     
     // MARK: - Configuration Methods Section
+    
+    private func fetchInfo() {
+        self.viewModel.fetchPictures()
+        self.galleryCollection.reloadData()
+        if self.viewModel.pictures.count != 0 {
+            self.noImagesStackView.isHidden = true
+        }
+    }
     
     private func setupComponents() {
         self.title = "Main Gallery"
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        self.takePictureButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         self.takePictureButton.layer.cornerRadius = 10
+        self.takePictureButton.layer.shadowColor = UIColor(
+            red: 0,
+            green: 0,
+            blue: 0,
+            alpha: 0.25
+        ).cgColor
+        self.takePictureButton.layer.shadowOffset = CGSize(
+            width: 0.0,
+            height: 2.0
+        )
+        self.takePictureButton.layer.shadowOpacity = 1.0
+        self.takePictureButton.layer.shadowRadius = 0.0
+        self.takePictureButton.layer.masksToBounds = false
         
         self.galleryCollection.delegate = self
         self.galleryCollection.dataSource = self

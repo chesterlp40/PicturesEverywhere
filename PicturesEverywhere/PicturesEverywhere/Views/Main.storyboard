@@ -109,6 +109,28 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HDh-Dz-ecd">
+                                <rect key="frame" x="96.666666666666686" y="291" width="200" height="270"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WWM-Rp-BsG">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="199.33333333333334"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="FVW-Ki-ZPC"/>
+                                            <constraint firstAttribute="height" constant="200" id="zwb-AA-Uel"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No images. Let´s takes some pics..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I8-76-5XF">
+                                        <rect key="frame" x="0.0" y="200" width="200" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="MOQ-aH-8FM"/>
+                                            <constraint firstAttribute="height" constant="70" id="PbA-8k-7Pa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqh-jz-jCp">
                                 <rect key="frame" x="80" y="754" width="233" height="48"/>
                                 <color key="backgroundColor" red="0.84172964100000003" green="0.91469925640000005" blue="0.7242552042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,7 +139,15 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Take Picture" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Take Picture">
+                                            <attributes>
+                                                <font key="NSFont" size="22" name="Futura-Medium"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="takePictureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HQF-1K-kqB"/>
                                 </connections>
@@ -128,11 +158,13 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jqh-jz-jCp" secondAttribute="bottom" constant="16" id="1Oi-C4-1IF"/>
                             <constraint firstItem="Jqh-jz-jCp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="3Ff-0u-tlI"/>
+                            <constraint firstItem="HDh-Dz-ecd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JSC-fm-g7w"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SrP-mO-vJc"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c3D-uj-es1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqh-jz-jCp" secondAttribute="trailing" constant="80" id="euB-GE-tyV"/>
                             <constraint firstItem="gKD-IX-TwL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iFM-To-gfV"/>
                             <constraint firstItem="Jqh-jz-jCp" firstAttribute="top" secondItem="gKD-IX-TwL" secondAttribute="bottom" constant="32" id="kRV-kY-Skz"/>
+                            <constraint firstItem="HDh-Dz-ecd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uKF-OG-Y3I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sMC-bK-Jy8"/>
@@ -140,6 +172,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="galleryCollection" destination="gKD-IX-TwL" id="0HR-Of-fOc"/>
+                        <outlet property="noImagesStackView" destination="HDh-Dz-ecd" id="Xfh-PB-2Z1"/>
                         <outlet property="takePictureButton" destination="Jqh-jz-jCp" id="ccv-T6-aHG"/>
                         <segue destination="K7p-1l-pZQ" kind="show" identifier="toDetailView" id="9jA-Oh-fAO"/>
                     </connections>
@@ -156,27 +189,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgs-dC-2Eo">
-                                <rect key="frame" x="196.66666666666666" y="426" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="52"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="8TP-TV-4xm">
+                                <rect key="frame" x="96.666666666666686" y="268" width="200" height="316"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BlI-UK-LcY">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="gmC-jG-ECr"/>
+                                            <constraint firstAttribute="width" constant="200" id="kbH-KG-taM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgs-dC-2Eo">
+                                        <rect key="frame" x="0.0" y="266" width="200" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NFP-l0-ou1"/>
+                                            <constraint firstAttribute="width" constant="200" id="bxE-Cj-hjD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="36"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EqV-s1-Cvm"/>
                         <color key="backgroundColor" red="0.84172964100000003" green="0.91469925640000005" blue="0.7242552042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Fgs-dC-2Eo" firstAttribute="centerY" secondItem="Q9R-la-6KJ" secondAttribute="centerY" id="3D0-9o-Rye"/>
-                            <constraint firstItem="Fgs-dC-2Eo" firstAttribute="centerX" secondItem="Q9R-la-6KJ" secondAttribute="centerX" id="3pE-YB-HDu"/>
+                            <constraint firstItem="8TP-TV-4xm" firstAttribute="centerX" secondItem="Q9R-la-6KJ" secondAttribute="centerX" id="Dj2-nP-juX"/>
+                            <constraint firstItem="8TP-TV-4xm" firstAttribute="centerY" secondItem="Q9R-la-6KJ" secondAttribute="centerY" id="S4z-Av-fRw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="BlI-UK-LcY" id="dW8-5F-G3V"/>
                         <outlet property="titleLabel" destination="Fgs-dC-2Eo" id="CsX-lh-GSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lr-wY-bGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="66" id="tko-Xa-BiD">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="316"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SsG-WL-k8m">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="Aj0-PB-O3Q"/>
+                                <constraint firstAttribute="width" constant="200" id="PC1-93-9PC"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2j-4D-Jgp">
+                            <rect key="frame" x="0.0" y="266" width="200" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="bQo-PG-Bc1"/>
+                                <constraint firstAttribute="height" constant="50" id="mwd-Bh-PBc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="36"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Hm2-cH-9UN"/>
+                </stackView>
             </objects>
-            <point key="canvasLocation" x="-853" y="5"/>
+            <point key="canvasLocation" x="-854.19847328244271" y="4.9295774647887329"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1fO-Gj-Pfa">
@@ -211,11 +285,11 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-Wb-j7b">
-                                        <rect key="frame" x="16" y="16" width="361" height="533.66666666666663"/>
+                                        <rect key="frame" x="16" y="16" width="361" height="524.66666666666663"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture location: Tigre Buenos Aires Argentina" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nig-ES-wfY">
-                                        <rect key="frame" x="16" y="574.66666666666663" width="361" height="100.33333333333337"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <rect key="frame" x="16" y="565.66666666666663" width="361" height="109.33333333333337"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -254,4 +328,7 @@
         </scene>
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
+    </resources>
 </document>

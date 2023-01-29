@@ -95,6 +95,9 @@ extension MainGalleryViewController: UIImagePickerControllerDelegate, UINavigati
         self.viewModel.savePicture(imageData) { [weak self] in
             self?.viewModel.fetchPictures()
             self?.galleryCollection.reloadData()
+            if self?.viewModel.pictures.count != 0 {
+                self?.noImagesStackView.isHidden = true
+            }
         }
         
         picker.dismiss(
