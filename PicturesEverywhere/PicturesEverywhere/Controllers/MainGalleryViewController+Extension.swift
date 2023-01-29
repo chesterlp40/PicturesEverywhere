@@ -30,6 +30,22 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
             for: indexPath
         )
         cell.backgroundView = imageView
+        
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell.contentView.layer.masksToBounds = true
+
+        cell.layer.cornerRadius = 5.0
+        cell.layer.borderWidth = 0.5
+        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowOffset = CGSizeMake(0, 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(
+            roundedRect: cell.bounds,
+            cornerRadius: cell.contentView.layer.cornerRadius
+        ).cgPath
+        
         return cell
     }
     

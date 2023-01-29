@@ -37,6 +37,8 @@ class MainGalleryViewController: UIViewController {
     
     private func setupComponents() {
         self.title = "Main Gallery"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         self.takePictureButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         self.takePictureButton.layer.cornerRadius = 10

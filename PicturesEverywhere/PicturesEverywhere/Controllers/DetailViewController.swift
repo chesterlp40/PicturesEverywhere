@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
     
     private func setupComponents() {
         self.title = "Picture Screen"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         guard let picture = self.picture else {
             return
