@@ -20,7 +20,7 @@ class DataViewModel {
     
     internal func fetchPictures() {
         let request: NSFetchRequest<Picture> = NSFetchRequest(
-            entityName: "Picture"
+            entityName: Constants.pictureEntity
         )
         do {
             self.pictures = try self.context.fetch(request)
@@ -45,7 +45,7 @@ class DataViewModel {
                 return
             }
                         
-            var output = "Picture location:"
+            var output = Constants.pictureLocationPrefix
             if let town = placemark.locality {
                 output = output + "\n\(town)"
             }

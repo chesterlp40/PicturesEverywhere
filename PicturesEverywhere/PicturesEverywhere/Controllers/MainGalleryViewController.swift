@@ -44,7 +44,7 @@ class MainGalleryViewController: UIViewController {
     }
     
     private func setupComponents() {
-        self.title = "Main Gallery"
+        self.title = Constants.mainTitleText
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
@@ -74,7 +74,7 @@ class MainGalleryViewController: UIViewController {
     ) {
         if
             let indexPath = self.galleryCollection.indexPathsForSelectedItems,
-            segue.identifier == "toDetailView"
+            segue.identifier == Constants.mainSegueIdentifier
         {
             let controller = segue.destination as? DetailViewController
             controller?.viewModel = self.viewModel
@@ -90,37 +90,12 @@ class MainGalleryViewController: UIViewController {
         self.validateLocationAuthorization()
     }
     
-    private func showAlert (
-        _ title: String,
-        _ message: String
-    ) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: UIAlertController.Style.alert
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: "OK",
-                style: UIAlertAction.Style.default,
-                handler: nil
-            )
-        )
-        DispatchQueue.main.async { [weak self] in
-            self?.present(
-                alert,
-                animated:true,
-                completion: nil
-            )
-        }
-    }
-    
     private func validateLocationAuthorization() {
         switch self.viewModel.locationManager.authorizationStatus {
         case .none, .notDetermined, .restricted, .denied:
             self.showAlert(
-                "Location denied",
-                "Location services are not enabled"
+                Constants.mainLocationDeniedTitle,
+                Constants.mainLocationDeniedMessage
             )
         case .authorizedAlways, .authorizedWhenInUse:
             self.validateCameraAuthorization()
@@ -144,10 +119,35 @@ class MainGalleryViewController: UIViewController {
                 }
             } else {
                 self?.showAlert(
-                    "Camera Permission Denied",
-                    "You don´t allow access to camera permission"
+                    Constants.mainCameraDeniedTitle,
+                    Constants.mainCameraDeniedMessage
                 )
             }
+        }
+    }
+    
+    private func showAlert (
+        _ title: String,
+        _ message: String
+    ) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: Constants.okText,
+                style: UIAlertAction.Style.default,
+                handler: nil
+            )
+        )
+        DispatchQueue.main.async { [weak self] in
+            self?.present(
+                alert,
+                animated:true,
+                completion: nil
+            )
         }
     }
 }

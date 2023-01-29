@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86D3DE0E2986FB1300D6C5A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D3DE0D2986FB1300D6C5A6 /* Constants.swift */; };
 		86EBCFD829833A8400761936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBCFD729833A8400761936 /* AppDelegate.swift */; };
 		86EBCFDA29833A8400761936 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBCFD929833A8400761936 /* SceneDelegate.swift */; };
 		86EBCFDC29833A8400761936 /* MainGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EBCFDB29833A8400761936 /* MainGalleryViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86D3DE0D2986FB1300D6C5A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		86EBCFD429833A8400761936 /* PicturesEverywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicturesEverywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EBCFD729833A8400761936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EBCFD929833A8400761936 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86D3DE0C2986FAF300D6C5A6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				86D3DE0D2986FB1300D6C5A6 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		86EBCFCB29833A8400761936 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		86EBCFD629833A8400761936 /* PicturesEverywhere */ = {
 			isa = PBXGroup;
 			children = (
+				86D3DE0C2986FAF300D6C5A6 /* Constants */,
 				86F7950329846E9100528DAB /* CoreLocation */,
 				86F795002983D00400528DAB /* ViewModel */,
 				86F794F929838D4500528DAB /* CoreData */,
@@ -232,6 +243,7 @@
 				86F7950529846EAE00528DAB /* LocationManager.swift in Sources */,
 				86F794CB2983725800528DAB /* DetailViewController.swift in Sources */,
 				86F795022983D02800528DAB /* DataViewModel.swift in Sources */,
+				86D3DE0E2986FB1300D6C5A6 /* Constants.swift in Sources */,
 				86F794FF2983C53900528DAB /* MainGalleryViewController+Extension.swift in Sources */,
 				86F794F829838B5600528DAB /* Picture.swift in Sources */,
 				86EBCFDA29833A8400761936 /* SceneDelegate.swift in Sources */,
@@ -367,6 +379,7 @@
 				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PicsEverywhere;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to the camera to take the photo?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please allow access to track location in pictures.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow access to track location in pictures.";
@@ -398,6 +411,7 @@
 				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PicsEverywhere;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to the camera to take the photo?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please allow access to track location in pictures.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow access to track location in pictures.";

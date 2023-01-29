@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     // MARK: - Configuration Methods Section
     
     private func setupComponents() {
-        self.title = "Picture Screen"
+        self.title = Constants.detailTitleText
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
@@ -46,7 +46,9 @@ class DetailViewController: UIViewController {
         self.locationLabel.text = picture.location
         
         let rightbutton = UIBarButtonItem(
-            image: UIImage(systemName: "trash"),
+            image: UIImage(
+                systemName: Constants.detailRightButtonImageName
+            ),
             style: .done,
             target: self,
             action: #selector(deleteImage)
@@ -56,8 +58,8 @@ class DetailViewController: UIViewController {
     
     @objc func deleteImage() {
         self.showAlert(
-            "Delete image?",
-            "Are you sure you want to delete the photo?"
+            Constants.detailDeletePictureTitle,
+            Constants.detailDeletePictureMessage
         )
     }
     
@@ -72,14 +74,14 @@ class DetailViewController: UIViewController {
         )
         alert.addAction(
             UIAlertAction(
-                title: "CANCEL",
+                title: Constants.cancelText,
                 style: UIAlertAction.Style.cancel,
                 handler: nil
             )
         )
         alert.addAction(
             UIAlertAction(
-                title: "OK",
+                title: Constants.okText,
                 style: UIAlertAction.Style.default,
                 handler: { [weak self] _ in
                     guard let indexPath = self?.indexPath else {

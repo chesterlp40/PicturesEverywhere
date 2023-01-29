@@ -17,10 +17,12 @@ class CoreDataManager {
     private init() {
         ValueTransformer.setValueTransformer(
             UIImageTransformer(),
-            forName: NSValueTransformerName("UIImageTransformer")
+            forName: NSValueTransformerName(
+                Constants.imageTransformer
+            )
         )
         self.persistentContainer = NSPersistentContainer(
-            name: "PicturesDataModel"
+            name: Constants.picturesDataModel
         )
         self.persistentContainer.loadPersistentStores { description, error in
             if let safeError = error {

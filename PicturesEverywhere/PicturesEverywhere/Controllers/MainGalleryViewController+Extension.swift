@@ -26,7 +26,7 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         let imageView = UIImageView()
         imageView.image = self.viewModel.pictures[indexPath.row].content
         let cell = self.galleryCollection.dequeueReusableCell(
-            withReuseIdentifier: "cell",
+            withReuseIdentifier: Constants.mainCellIdentifier,
             for: indexPath
         )
         cell.backgroundView = imageView
@@ -63,7 +63,7 @@ extension MainGalleryViewController: UICollectionViewDelegate, UICollectionViewD
         didSelectItemAt indexPath: IndexPath
     ) {
         self.performSegue(
-            withIdentifier: "toDetailView",
+            withIdentifier: Constants.mainSegueIdentifier,
             sender: nil
         )
     }

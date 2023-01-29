@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - MainGalleryViewController Section
+// MARK: - SplashViewController Section
 
 class SplashViewController: UIViewController {
     
@@ -26,15 +26,17 @@ class SplashViewController: UIViewController {
     // MARK: - Configuration Methods Section
     
     private func setupComponents() {
-        self.titleLabel.text = "Loading"
+        self.titleLabel.text = Constants.splashLoadingText
         
-        let image = UIImage(named: "rocket")
+        let image = UIImage(
+            named: Constants.splashImageName
+        )
         self.imageView.image = image
         self.imageView.contentMode = .scaleAspectFill
     }
     
     private func animateTitle() {
-        let title = "..."
+        let title = Constants.splashDotText
         var letterIndex = 0.0
         for letter in title {
             Timer.scheduledTimer(
@@ -50,12 +52,12 @@ class SplashViewController: UIViewController {
     private func redirectToMainApp() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             let storyBoard = UIStoryboard(
-                name: "Main",
+                name: Constants.splashStoryboardName,
                 bundle: nil
             )
             guard
                 let mainGalleryViewController = storyBoard.instantiateViewController(
-                    withIdentifier: "NavigationController"
+                    withIdentifier: Constants.splashNavigationIdentifier
                 ) as? UINavigationController
             else {
                 return

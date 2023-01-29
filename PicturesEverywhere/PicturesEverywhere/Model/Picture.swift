@@ -13,7 +13,7 @@ import CoreData
 @objc(Picture)
 class Picture: NSManagedObject {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Picture> {
-        return NSFetchRequest<Picture>(entityName: "Picture")
+        return NSFetchRequest<Picture>(entityName: Constants.pictureEntity)
     }
 
     @NSManaged public var content: UIImage?
