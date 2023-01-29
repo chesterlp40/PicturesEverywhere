@@ -35,7 +35,9 @@ class DetailViewController: UIViewController {
         }
         
         self.detailImageView.image = picture.content
-        self.detailImageView.contentMode = .scaleToFill
+        self.detailImageView.clipsToBounds = true
+        self.detailImageView.layer.cornerRadius = 8
+        self.detailImageView.contentMode = .scaleAspectFill
         self.locationLabel.text = picture.location
     }
 }
