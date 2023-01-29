@@ -38,8 +38,8 @@ class MainGalleryViewController: UIViewController {
     private func fetchInfo() {
         self.viewModel.fetchPictures()
         self.galleryCollection.reloadData()
-        if self.viewModel.pictures.count != 0 {
-            self.noImagesStackView.isHidden = true
+        if self.viewModel.pictures.count == 0 {
+            self.noImagesStackView.isHidden = false
         }
     }
     
@@ -74,11 +74,11 @@ class MainGalleryViewController: UIViewController {
     ) {
         if
             let indexPath = self.galleryCollection.indexPathsForSelectedItems,
-            let row = indexPath.first?.row,
             segue.identifier == "toDetailView"
         {
             let controller = segue.destination as? DetailViewController
-            controller?.picture = self.viewModel.pictures[row]
+            controller?.viewModel = self.viewModel
+            controller?.indexPath = indexPath.first
         }
     }
     
