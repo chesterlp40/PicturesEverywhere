@@ -25,10 +25,8 @@ class Constants {
     
     // MARK: - MainGalleryViewController Section
     
-    internal static let mainTitleText = "Main Gallery"
+    internal static let mainTitleText = "Pics Everywhere"
     internal static let mainSegueIdentifier = "toDetailView"
-    internal static let mainLocationDeniedTitle = "Location denied"
-    internal static let mainLocationDeniedMessage = "Location services are not enabled"
     internal static let mainCameraDeniedTitle = "Camera Permission Denied"
     internal static let mainCameraDeniedMessage = "You don´t allow access to camera permission"
     internal static let mainCellIdentifier = "cell"

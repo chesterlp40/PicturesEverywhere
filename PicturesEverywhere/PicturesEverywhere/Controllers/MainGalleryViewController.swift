@@ -25,6 +25,7 @@ class MainGalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupComponents()
+        self.fetchInfo()
     }
     
     override func viewWillAppear(
@@ -35,18 +36,12 @@ class MainGalleryViewController: UIViewController {
     
     // MARK: - Configuration Methods Section
     
-    private func fetchInfo() {
-        self.viewModel.fetchPictures()
-        self.galleryCollection.reloadData()
-        if self.viewModel.pictures.count == 0 {
-            self.noImagesStackView.isHidden = false
-        }
-    }
-    
     private func setupComponents() {
         self.title = Constants.mainTitleText
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        self.noImagesStackView.isHidden = true
         
         self.takePictureButton.layer.cornerRadius = 10
         self.takePictureButton.layer.shadowColor = UIColor(
@@ -66,6 +61,14 @@ class MainGalleryViewController: UIViewController {
         self.galleryCollection.delegate = self
         self.galleryCollection.dataSource = self
         self.galleryCollection.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func fetchInfo() {
+        self.viewModel.fetchPictures()
+        self.galleryCollection.reloadData()
+        if self.viewModel.pictures.count == 0 {
+            self.noImagesStackView.isHidden = false
+        }
     }
     
     override func prepare(
