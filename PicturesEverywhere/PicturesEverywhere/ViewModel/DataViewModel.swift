@@ -33,6 +33,42 @@ class DataViewModel {
         _ imageData: Data,
         completion: @escaping () -> Void
     ) {
+        switch self.locationManager.authorizationStatus {
+        case .none, .notDetermined, .restricted, .denied:
+            self.saveWithoutLocation(
+                imageData,
+                completion: completion
+            )
+        case .authorizedAlways, .authorizedWhenInUse:
+            self.saveWithLocation(
+                imageData,
+                completion: completion
+            )
+        @unknown default:
+            break
+        }
+    }
+    
+    internal func saveWithoutLocation(
+        _ imageData: Data,
+        completion: @escaping () -> Void
+    ) {
+        let picture = Picture(
+            context: self.context
+        )
+        picture.location = Constants.pictureLocationPrefix + "\nUNKNOWN"
+        picture.content = UIImage(
+            data: imageData
+        )
+        
+        try? self.context.save()
+        completion()
+    }
+    
+    internal func saveWithLocation(
+        _ imageData: Data,
+        completion: @escaping () -> Void
+    ) {
         guard let exposedLocation = self.locationManager.exposedLocation else {
             print("*** Error in \(#function): exposedLocation is nil")
             return

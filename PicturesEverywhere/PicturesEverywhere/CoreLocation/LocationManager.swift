@@ -22,8 +22,10 @@ class LocationManager: NSObject {
     
     override init() {
         super.init()
-        self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    internal func requestAuthorization() {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
@@ -46,31 +48,6 @@ class LocationManager: NSObject {
             }
             
             completion(placemark)
-        }
-    }
-}
-
-// MARK: - LocationManager Delegate
-
-extension LocationManager: CLLocationManagerDelegate {
-    
-    func locationManager(
-        _ manager: CLLocationManager,
-        didChangeAuthorization status: CLAuthorizationStatus
-    ) {
-        switch status {
-        case .notDetermined:
-            print("notDetermined")
-        case .authorizedWhenInUse:
-            print("authorizedWhenInUse")
-        case .authorizedAlways:
-            print("authorizedAlways")
-        case .restricted:
-            print("restricted")
-        case .denied:
-            print("denied")
-        default:
-            print("notDetermined")
         }
     }
 }

@@ -87,27 +87,14 @@ class MainGalleryViewController: UIViewController {
     @IBAction func takePictureButtonPressed(
         _ sender: UIButton
     ) {
-        self.validateLocationAuthorization()
-    }
-    
-    private func validateLocationAuthorization() {
-        switch self.viewModel.locationManager.authorizationStatus {
-        case .none, .notDetermined, .restricted, .denied:
-            self.showAlert(
-                Constants.mainLocationDeniedTitle,
-                Constants.mainLocationDeniedMessage
-            )
-        case .authorizedAlways, .authorizedWhenInUse:
-            self.validateCameraAuthorization()
-        @unknown default:
-            break
-        }
+        self.validateCameraAuthorization()
     }
     
     private func validateCameraAuthorization() {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] granted in
             if granted {
                 DispatchQueue.main.async {
+                    self?.viewModel.locationManager.requestAuthorization()
                     let picker = UIImagePickerController()
                     picker.sourceType = .camera
                     picker.allowsEditing = true

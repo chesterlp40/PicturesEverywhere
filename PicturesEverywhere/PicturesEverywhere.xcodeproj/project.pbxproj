@@ -374,9 +374,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PicsEverywhere;
@@ -407,9 +408,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7J27C6KE2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicturesEverywhere/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PicsEverywhere;
