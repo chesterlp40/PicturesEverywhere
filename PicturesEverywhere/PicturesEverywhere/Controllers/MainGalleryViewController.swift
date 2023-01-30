@@ -38,6 +38,13 @@ class MainGalleryViewController: UIViewController {
     
     private func setupComponents() {
         self.title = Constants.mainTitleText
+        self.view.backgroundColor = UIColor(
+            red: 160 / 255.0,
+            green: 195 / 255.0,
+            blue: 210 / 255.0,
+            alpha: 1.0
+        )
+        
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.darkGray]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
